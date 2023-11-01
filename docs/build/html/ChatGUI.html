@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ChatGUI Module &#8212; Documentation CHATEXPRESS v0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=bc419b7c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Main Module" href="main.html" />
+    <link rel="prev" title="ChatClient Module" href="ChatClient.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-ChatGUI">
+<span id="chatgui-module"></span><h1>ChatGUI Module<a class="headerlink" href="#module-ChatGUI" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ChatGUI.ChatGUI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ChatGUI.</span></span><span class="sig-name descname"><span class="pre">ChatGUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_send_message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_connect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_close</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ChatGUI.ChatGUI" title="Link to this definition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface graphique pour l’application de chat.</p>
+<p>Cette classe crée et gère les widgets de l’interface utilisateur pour
+l’application de chat, y compris la boîte de chat, la zone de saisie
+du message et les boutons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>master</strong> – La fenêtre principale de l’application Tkinter.</p></li>
+<li><p><strong>on_send_message</strong> – Fonction à appeler lorsque l’utilisateur envoie un message.</p></li>
+<li><p><strong>on_connect</strong> – Fonction à appeler pour établir la connexion au serveur de chat.</p></li>
+<li><p><strong>on_close</strong> – Fonction à appeler lorsque la fenêtre de l’application est fermée.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatGUI.ChatGUI.clear_message">
+<span class="sig-name descname"><span class="pre">clear_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChatGUI.ChatGUI.clear_message" title="Link to this definition">¶</a></dt>
+<dd><p>Efface le message actuellement saisi dans la zone de saisie.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatGUI.ChatGUI.get_message">
+<span class="sig-name descname"><span class="pre">get_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChatGUI.ChatGUI.get_message" title="Link to this definition">¶</a></dt>
+<dd><p>Récupère le message saisi par l’utilisateur dans la zone de saisie.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Le message saisi par l’utilisateur.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatGUI.ChatGUI.update_chat_box">
+<span class="sig-name descname"><span class="pre">update_chat_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ChatGUI.ChatGUI.update_chat_box" title="Link to this definition">¶</a></dt>
+<dd><p>Ajoute un message à la boîte de chat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> – Le message à ajouter à la boîte de chat.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatGUI.ChatGUI.update_status">
+<span class="sig-name descname"><span class="pre">update_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ChatGUI.ChatGUI.update_status" title="Link to this definition">¶</a></dt>
+<dd><p>Met à jour le statut de la connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – Le texte à afficher comme statut.</p></li>
+<li><p><strong>color</strong> – La couleur du texte du statut.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CHATEXPRESS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ChatClient.html">ChatClient Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ChatGUI Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ChatGUI.ChatGUI"><code class="docutils literal notranslate"><span class="pre">ChatGUI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ChatClient.html" title="Chapitre précédent">ChatClient Module</a></li>
+      <li>Next: <a href="main.html" title="Chapitre suivant">Main Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, AVENEL THEOPHILE.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/ChatGUI.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ChatClient Module &#8212; Documentation CHATEXPRESS v0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=bc419b7c"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=d99ca74e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="ChatGUI Module" href="ChatGUI.html" />
+    <link rel="prev" title="Welcome to CHATEXPRESS’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-ChatClient">
+<span id="chatclient-module"></span><h1>ChatClient Module<a class="headerlink" href="#module-ChatClient" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ChatClient.ChatClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ChatClient.</span></span><span class="sig-name descname"><span class="pre">ChatClient</span></span><a class="headerlink" href="#ChatClient.ChatClient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Client pour l’application de chat.</p>
+<p>Cette classe gère la connexion au serveur de chat, l’envoi et la réception de messages,
+et interagit avec l’interface utilisateur pour afficher les messages et les statuts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gui</strong> – L’interface graphique associée à ce client.</p></li>
+<li><p><strong>client_socket</strong> – Le socket utilisé pour la connexion au serveur.</p></li>
+<li><p><strong>connected</strong> – Un booléen indiquant si le client est actuellement connecté.</p></li>
+<li><p><strong>stop_event</strong> – Un événement utilisé pour arrêter le thread de réception des messages.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatClient.ChatClient.connect_to_server">
+<span class="sig-name descname"><span class="pre">connect_to_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChatClient.ChatClient.connect_to_server" title="Link to this definition">¶</a></dt>
+<dd><p>Connecte le client au serveur de chat.</p>
+<p>Si le client est déjà connecté, affiche un message dans la boîte de chat.
+Sinon, tente de se connecter au serveur et lance un thread pour recevoir les messages.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatClient.ChatClient.on_close">
+<span class="sig-name descname"><span class="pre">on_close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChatClient.ChatClient.on_close" title="Link to this definition">¶</a></dt>
+<dd><p>Gère la fermeture de l’application.</p>
+<p>Ferme la connexion au serveur si elle est ouverte, et détruit la fenêtre de l’application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatClient.ChatClient.receive_messages">
+<span class="sig-name descname"><span class="pre">receive_messages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChatClient.ChatClient.receive_messages" title="Link to this definition">¶</a></dt>
+<dd><p>Reçoit les messages du serveur de chat.</p>
+<p>Ce méthode est destinée à être exécutée dans un thread séparé.
+Elle écoute les messages du serveur et les affiche dans la boîte de chat.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatClient.ChatClient.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ChatClient.ChatClient.send_message" title="Link to this definition">¶</a></dt>
+<dd><p>Envoie un message au serveur de chat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – L’événement qui a déclenché cet appel (peut être None).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ChatClient.ChatClient.set_gui">
+<span class="sig-name descname"><span class="pre">set_gui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gui</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ChatClient.ChatClient.set_gui" title="Link to this definition">¶</a></dt>
+<dd><p>Associe une interface graphique à ce client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gui</strong> – L’instance de ChatGUI à associer à ce client.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CHATEXPRESS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ChatClient Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ChatClient.ChatClient"><code class="docutils literal notranslate"><span class="pre">ChatClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ChatGUI.html">ChatGUI Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="Chapitre précédent">Welcome to CHATEXPRESS’s documentation!</a></li>
+      <li>Next: <a href="ChatGUI.html" title="Chapitre suivant">ChatGUI Module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, AVENEL THEOPHILE.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/ChatClient.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
